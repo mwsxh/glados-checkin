@@ -5,12 +5,14 @@ const glados = async () => {
     const headers = {
       'cookie': cookie,
       'referer': 'https://glados.cloud/console/checkin',
-      'user-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)',
+      'origin': 'https://glados.cloud',
+      // 'user-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)',
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0',
     }
     const checkin = await fetch('https://glados.cloud/api/user/checkin', {
       method: 'POST',
-      headers: { ...headers, 'content-type': 'application/json' },
-      body: '{"token": "glados.one"}',
+      headers: { ...headers, 'content-type': 'application/json;charset=UTF-8' },
+      body: '{"token": "glados.cloud"}',
     }).then((r) => r.json())
     const status = await fetch('https://glados.cloud/api/user/status', {
       method: 'GET',
