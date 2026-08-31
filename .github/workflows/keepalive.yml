@@ -1,0 +1,16 @@
+name: Keepalive Workflow
+
+on:
+  schedule:
+    # 每天 UTC 时间 00:00 运行一次，你可以根据需要调整
+    - cron: "0 0 * * *"
+  # 可选：也支持手动触发
+  workflow_dispatch:
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write # 此权限允许工作流通过API启用自身
+    steps:
+      - uses: liskin/gh-workflow-keepalive@v1
